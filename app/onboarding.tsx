@@ -57,7 +57,10 @@ export default function OnboardingScreen() {
 
   const scrollTo = () => {
     if (currentIndex < onboardingData.length - 1) {
-      slidesRef.current?.scrollToIndex({ index: currentIndex + 1 });
+      slidesRef.current?.scrollToIndex({ 
+        index: currentIndex + 1,
+        animated: true 
+      });
     } else {
       router.replace('/(tabs)');
     }
