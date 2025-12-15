@@ -5,7 +5,14 @@ import Colors from '@/constants/Colors';
 import Layout from '@/constants/Layout';
 import { ArrowRight } from 'lucide-react-native';
 
-const onboardingData = [
+interface OnboardingItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+const onboardingData: OnboardingItem[] = [
   {
     id: '1',
     title: 'Welcome to SurveyPay',
@@ -35,7 +42,7 @@ const onboardingData = [
 export default function OnboardingScreen() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
-  const slidesRef = useRef(null);
+  const slidesRef = useRef<FlatList<OnboardingItem>>(null);
 
   interface ViewableInfo {
     viewableItems: Array<{ index?: number }>;
